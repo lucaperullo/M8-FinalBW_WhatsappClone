@@ -21,6 +21,7 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import LoginPage from "./pages/LoginPage";
 const toggleDarkModeHandler = () => {
   document.body.classList.toggle("dark");
 };
@@ -36,6 +37,7 @@ const App: React.FC = () => (
           onIonChange={toggleDarkModeHandler}
         />
       </IonItem>
+      <Route path="/" exact component={LoginPage}/>
     </IonReactRouter>
   </IonApp>
 );
