@@ -1,19 +1,15 @@
 {
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "baseUrl": "src",
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
+    "target": "es5",
+    "module": "commonjs",
     "jsx": "react",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "noEmit": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext",
-    "types": ["vite/client"]
-  },
-  "include": ["src", "vite.config.ts"]
+    "noImplicitAny": false,
+    "esModuleInterop": true,
+    "sourceMap": true,
+    "allowUnreachableCode": false,
+    "strictPropertyInitialization": false,
+    "experimentalDecorators": true,
+    "lib": ["dom", "es2015.promise", "es5"]
+  }
 }
