@@ -11,7 +11,7 @@ import {
   IonInput,
 } from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
-import { moon } from "ionicons/icons";
+import { moon, sunny } from "ionicons/icons";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -31,29 +31,39 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+
 import { Provider } from "react-redux";
 import LoginPage from "./pages/LoginPage";
 import { store } from "./store/store";
+
+const theme = store.getState();
+const Dark = document.body.classList.value === "dark";
+const Light = document.body.classList.value === "light";
+document.body.classList.add("light");
 const toggleDarkModeHandler = () => {
-  document.body.classList.toggle("dark");
+  console.log("running");
+  const lightDarkModeHandler = () => {
+   Dark? document.body.classList.toggle("dark") : document.body.classList.toggle("light")
+  };
+  lightDarkModeHandler();
 };
 const App: React.FC = () => (
   <Provider store={store}>
-  <IonApp>
-    <IonReactRouter>
-      <IonItem>
-        <IonIcon slot="end" icon={moon} />
-        <IonLabel>Dark Mode</IonLabel>
-        <IonToggle
-          slot="end"
-          name="darkMode"
-          onIonChange={toggleDarkModeHandler}
-        />
-      </IonItem>
-      <Route path="/" exact component={LoginPage}/>
-    </IonReactRouter>
+    <IonApp>
+      <IonReactRouter>
+        <IonItem>
+          <IonIcon slot="end" icon={Dark ? moon : sunny} />
+
+          <IonToggle
+            slot="end"
+            name="darkMode"
+            onIonChange={toggleDarkModeHandler}
+          />
+        </IonItem>
+        <Route path="/" exact component={LoginPage} />
+      </IonReactRouter>
     </IonApp>
-    </Provider>
+  </Provider>
 );
 
 export default App;

@@ -1,7 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import chatRoomSlice from "./features/chatrooms/chatRoomSlice";
 
 export const store = configureStore({
   reducer: {
+    theme: chatRoomSlice,
     //   contacts: contactList,
     //   comments: commentsReducer,
     //   users: usersReducer,

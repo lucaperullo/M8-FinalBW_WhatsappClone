@@ -1,10 +1,10 @@
 export interface Contact {
-    id: string;
-    name: string;
+  phone: string;
+  id: string;
+  name: string;
 }
 
-
 export interface Store {
-    contacts: Contact[];
-    newContact: Contact;
+  contacts: Contact[];
+  newContact: Contact;
 }
