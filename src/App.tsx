@@ -1,5 +1,15 @@
 import { Redirect, Route } from "react-router-dom";
-import { IonApp, IonItem, IonIcon, IonLabel, IonToggle } from "@ionic/react";
+
+import {
+  IonApp,
+  IonItem,
+  IonIcon,
+  IonLabel,
+  IonToggle,
+  IonRow,
+  IonCol,
+  IonInput,
+} from "@ionic/react";
 import { IonReactRouter } from "@ionic/react-router";
 import { moon } from "ionicons/icons";
 
@@ -21,23 +31,41 @@ import "@ionic/react/css/display.css";
 
 /* Theme variables */
 import "./theme/variables.css";
+import { Provider } from "react-redux";
 const toggleDarkModeHandler = () => {
   document.body.classList.toggle("dark");
 };
 const App: React.FC = () => (
+  <Provider store={root}>
   <IonApp>
-    <IonReactRouter>
-      <IonItem>
-        <IonIcon slot="end" icon={moon} />
-        <IonLabel>Dark Mode</IonLabel>
-        <IonToggle
-          slot="end"
-          name="darkMode"
-          onIonChange={toggleDarkModeHandler}
-        />
-      </IonItem>
-    </IonReactRouter>
-  </IonApp>
+    <IonItem>
+      <IonIcon slot="start" icon={moon} />
+      <IonLabel>Whatzapp</IonLabel>
+      <IonToggle
+        slot="start"
+        name="darkMode"
+        onIonChange={toggleDarkModeHandler}
+      />
+    </IonItem>
+    <div
+      style={{
+        width: "100vw",
+        display: "flex",
+        border: "1px solid black",
+        height: "100vh",
+        padding: "100px",
+      }}
+    >
+      <div>
+        <IonItem>
+          <IonInput></IonInput>
+          <IonInput></IonInput>
+        </IonItem>
+      </div>
+    </div>
+    <IonReactRouter></IonReactRouter>
+    </IonApp>
+    </Provider>
 );
 
 export default App;
