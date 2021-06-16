@@ -1,43 +1,29 @@
-import React from "react";
-import {
-  IonList,
-  IonItem,
-  IonMenu,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonLabel,
-  IonInput,
-  IonToggle,
-  IonRadio,
-  IonCheckbox,
-  IonItemSliding,
-  IonItemOption,
-  IonItemOptions,
-  IonContent,
-} from "@ionic/react";
+import React from 'react';
+import { IonContent, IonItem, IonAvatar, IonLabel, IonSearchbar } from '@ionic/react';
 
-const Contacts = () => {
-  return (
-    <>
-      <IonMenu side="start" menuId="first">
-        <IonHeader>
-          <IonToolbar color="primary">
-            <IonTitle>Start Menu</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent>
-          <IonList>
-            <IonItem>Menu Item</IonItem>
-            <IonItem>Menu Item</IonItem>
-            <IonItem>Menu Item</IonItem>
-            <IonItem>Menu Item</IonItem>
-            <IonItem>Menu Item</IonItem>
-          </IonList>
-        </IonContent>
-      </IonMenu>
-    </>
-  );
-};
+import '../theme/style.css'
 
-export default Contacts;
+const Contacts: React.FC = () => (
+  <IonContent
+  fullscreen
+    scrollEvents={true}
+    onIonScrollStart={() => {}}
+    onIonScrollEnd={() => {}}>
+
+      <IonSearchbar 
+      // value={searchText} 
+      // onIonChange={e => setSearchText(e.detail.value!)}
+      ></IonSearchbar>
+      <IonItem>
+      <IonAvatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" alt="profileImg" />
+      </IonAvatar>
+      <IonLabel>
+        <h3>[CONTACT NAME]</h3>
+        <p>[CONTACT'S STATUS]</p>
+        </IonLabel>
+    </IonItem>
+  </IonContent>
+)
+
+export default Contacts
