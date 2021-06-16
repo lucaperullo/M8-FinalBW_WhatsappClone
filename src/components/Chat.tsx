@@ -1,10 +1,10 @@
-import React from "react";
-import {
-  IonContent,
-  IonItem,
-  IonTextarea
-} from "@ionic/react";
-import styled from "styled-components";
+import React, { useEffect } from "react"
+import { IonContent, IonItem, IonTextarea } from "@ionic/react"
+import styled from "styled-components"
+
+import io from "socket.io-client"
+const endpoint = "localhost:3001"
+const socket = io(endpoint, { transports: ["websocket"] })
 
 const Chat = () => {
   return (
@@ -14,18 +14,19 @@ const Chat = () => {
           <SenderBubble>[THIS IS SENDER CHAT]</SenderBubble>
         </div>
         <div>
-        <ReceivedBubble>[THIS IS RECEIVED CHAT]</ReceivedBubble>
+          <ReceivedBubble>[THIS IS RECEIVED CHAT]</ReceivedBubble>
         </div>
       </ChatContainer>
-          <IonItems>
-            <IonTextarea placeholder="Write some text..." 
-            // value={text}
-            // onIonChange={e => setText(e.detail.value!)}
-            />
-          </IonItems>
+      <IonItems>
+        <IonTextarea
+          placeholder="Write some text..."
+          // value={text}
+          // onIonChange={e => setText(e.detail.value!)}
+        />
+      </IonItems>
     </IonContainer>
-  );
-};
+  )
+}
 
 const IonContainer = styled(IonContent)`
   display: flex;
@@ -62,4 +63,4 @@ const ReceivedBubble = styled.span`
   margin-bottom: 10px;
 `
 
-export default Chat;
+export default Chat
