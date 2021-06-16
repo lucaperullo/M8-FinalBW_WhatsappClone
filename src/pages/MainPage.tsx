@@ -10,17 +10,17 @@ const MainPage = () => {
   return (
     <IonContent fullscreen>
       <IonGrid>
-      <ModRow>
-      <IonCol size="4"><Contacts /></IonCol>
-      <IonCol><Chat /></IonCol>
-      </ModRow>
+      <IonRow>
+        <ModCol size="4"><Contacts /></ModCol>
+        <ModCol><Chat /></ModCol>
+      </IonRow>
       </IonGrid>
     </IonContent>
 
   );
 };
 
-const ModRow = styled(IonRow)`
+const ModCol = styled(IonCol)`
   height: 100vh
 `
 
