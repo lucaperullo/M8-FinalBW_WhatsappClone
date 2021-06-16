@@ -13,7 +13,7 @@ import {
 const Chat = () => {
   return (
     <>
-     
+     <h1>THIS IS CHAT</h1>
     </>
   );
 };

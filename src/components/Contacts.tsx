@@ -1,43 +1,28 @@
-import React from "react";
-import {
-  IonList,
-  IonItem,
-  IonMenu,
-  IonHeader,
-  IonToolbar,
-  IonTitle,
-  IonLabel,
-  IonInput,
-  IonToggle,
-  IonRadio,
-  IonCheckbox,
-  IonItemSliding,
-  IonItemOption,
-  IonItemOptions,
-  IonContent,
-} from "@ionic/react";
+import React from 'react';
+import { IonContent, IonItem, IonAvatar, IonLabel } from '@ionic/react';
+import styled from 'styled-components';
+import '../theme/style.css'
 
-const Contacts = () => {
-  return (
-    <>
-      <IonMenu side="start" menuId="first">
-        <IonHeader>
-          <IonToolbar color="primary">
-            <IonTitle>Start Menu</IonTitle>
-          </IonToolbar>
-        </IonHeader>
-        <IonContent>
-          <IonList>
-            <IonItem>Menu Item</IonItem>
-            <IonItem>Menu Item</IonItem>
-            <IonItem>Menu Item</IonItem>
-            <IonItem>Menu Item</IonItem>
-            <IonItem>Menu Item</IonItem>
-          </IonList>
-        </IonContent>
-      </IonMenu>
-    </>
-  );
-};
+const Contacts: React.FC = () => (
+  <IonContent
+  id="#style-3"
+  className="scrollbar"
+  fullscreen
+    scrollEvents={true}
+    onIonScrollStart={() => {}}
+    onIonScroll={() => {}}
+    onIonScrollEnd={() => {}}>
+      <div className="force-overflow"></div>
+      <IonItem>
+      <IonAvatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" alt="profileImg" />
+      </IonAvatar>
+      <IonLabel>
+        <h3>[CONTACT NAME]</h3>
+        <p>[CONTACT'S STATUS]</p>
+        </IonLabel>
+    </IonItem>
+  </IonContent>
+)
 
-export default Contacts;
+export default Contacts
