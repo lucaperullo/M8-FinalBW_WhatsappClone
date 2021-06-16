@@ -1,4 +1,4 @@
-import { IonModal, IonButton, IonContent } from '@ionic/react';
+import { IonModal, IonButton, IonContent, IonHeader, IonLabel, IonItem, IonInput } from '@ionic/react';
 
 interface ModalProps {
   modalShow: boolean
@@ -7,12 +7,25 @@ interface ModalProps {
 const NewContactModal = (props: ModalProps) => {
 
   return (
-    <IonContent>
-      <IonModal isOpen={props.modalShow} cssClass='my-custom-class'>
-        <p>This is modal content</p>
-        <IonButton onClick={() => props.setModalShow(false)}>Close Modal</IonButton>
+      <IonModal isOpen={props.modalShow} cssClass='add-contact-modal' backdropDismiss={false}>
+        <IonHeader>
+          <h1>Add a new contact</h1>
+        </IonHeader>
+        <IonItem style={{ borderRadius: "10px", marginBottom: "5px" }}>
+            <IonLabel>Phone Number: </IonLabel>
+            <IonInput
+              type="text"
+            ></IonInput>
+          </IonItem>
+          <IonItem style={{ borderRadius: "10px", marginBottom: "5px" }}>
+            <IonLabel>Name: </IonLabel>
+            <IonInput
+              type="text"
+            ></IonInput>
+          </IonItem>
+        <IonButton onClick={() => props.setModalShow(false)}>Add contact</IonButton>
+        <IonButton onClick={() => props.setModalShow(false)}>Close</IonButton>
       </IonModal>
-    </IonContent>
   );
 };
 
