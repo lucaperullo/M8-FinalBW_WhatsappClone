@@ -3,25 +3,27 @@ import React from 'react';
 import { IonGrid, IonRow, IonCol, IonContent } from '@ionic/react';
 import Chat from "../components/Chat";
 import Contacts from "../components/Contacts";
-import styled from 'styled-components'
+import styled from 'styled-components';
+
 
 const MainPage = () => {
   return (
     <IonContent fullscreen>
       <IonGrid>
-      <IonRow>
+      <ModRow>
       <IonCol size="4"><Contacts /></IonCol>
       <IonCol><Chat /></IonCol>
-      </IonRow>
+      </ModRow>
       </IonGrid>
     </IonContent>
 
   );
 };
 
-const Container = styled.div`
-  height: 100%;
-  width: 100%
+const ModRow = styled(IonRow)`
+  height: 100vh
 `
+
+
 
 export default MainPage;
