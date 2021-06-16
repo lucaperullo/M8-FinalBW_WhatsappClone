@@ -35,15 +35,19 @@ import "./theme/variables.css";
 import { Provider } from "react-redux";
 import LoginPage from "./pages/LoginPage";
 import { store } from "./store/store";
+import MainPage from "./pages/MainPage";
+import { toggleTheme } from "./store/features/chatrooms/chatRoomSlice";
 
 const theme = store.getState();
 const Dark = document.body.classList.value === "dark";
 const Light = document.body.classList.value === "light";
-document.body.classList.add("light");
+document.body.classList.add("dark");
 const toggleDarkModeHandler = () => {
   console.log("running");
   const lightDarkModeHandler = () => {
-   Dark? document.body.classList.toggle("dark") : document.body.classList.toggle("light")
+    Light
+      ? document.body.classList.toggle("dark") && console.log(toggleTheme())
+      : document.body.classList.toggle("light");
   };
   lightDarkModeHandler();
 };
@@ -52,7 +56,7 @@ const App: React.FC = () => (
     <IonApp>
       <IonReactRouter>
         <IonItem>
-          <IonIcon slot="end" icon={Dark ? moon : sunny} />
+          <IonIcon slot="end" icon={Light ? sunny : moon} />
 
           <IonToggle
             slot="end"
@@ -61,6 +65,7 @@ const App: React.FC = () => (
           />
         </IonItem>
         <Route path="/" exact component={LoginPage} />
+        <Route path="/chat" exact component={MainPage} />
       </IonReactRouter>
     </IonApp>
   </Provider>

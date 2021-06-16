@@ -1,7 +1,8 @@
 export interface Contact {
   phone: string;
   id: string;
-  name: string;
+  username: string;
+  profileImage: string
 }
 
 export interface Store {
