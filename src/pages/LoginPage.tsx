@@ -9,13 +9,13 @@ const LoginPage = () => {
 
   const loginHandler = async (e: any) => {
     e.preventDefault();
-    const { data } = await backend.post("/api/user/login", {
+    const res = await backend.post("/api/user/login", {
       phoneNumber,
     });
-    console.log(data);
+    console.log(res);
     // if login successful push route to /chat
-    data && window.location.assign("/chat");
-    !data && console.error({ error: data });
+    res && window.location.assign("/chat");
+    !res && console.error({ error: res });
   };
   return (
     <>

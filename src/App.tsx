@@ -36,12 +36,14 @@ import LoginPage from "./pages/LoginPage";
 import { store } from "./store/store";
 import MainPage from "./pages/MainPage";
 import { toggleTheme } from "./store/features/chatrooms/chatRoomSlice";
+import { MenuExample } from "./components/MenuBar";
 
 const App: React.FC = () => (
   <Provider store={store}>
     <IonApp>
       <IonReactRouter>
-        <Route path="/" exact component={LoginPage} />
+        <Route path="/" exact component={MenuExample} />
+        <Route path="/asd" exact component={LoginPage} />
         <Route path="/chat" exact component={MainPage} />
       </IonReactRouter>
     </IonApp>
