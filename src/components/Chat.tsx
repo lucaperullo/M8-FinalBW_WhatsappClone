@@ -8,6 +8,9 @@ const endpoint = "http://localhost:5000"
 const socket = io(endpoint, { transports: ["websocket"] })
 
 const Chat = () => {
+  // useEffect(() => {
+  //   socket.emit("connection", () => {})
+  // }, [])
   return (
     <IonContent fullscreen>
       <ChatContainer>
