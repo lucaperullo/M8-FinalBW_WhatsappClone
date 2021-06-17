@@ -4,7 +4,7 @@ import styled from "styled-components";
 import io from "socket.io-client";
 import "../theme/style.css";
 
-const endpoint = "localhost:5000";
+const endpoint = "https://whatzappy.herokuapp.com/";
 const socket = io(endpoint, { transports: ["websocket"] });
 
 const Chat = () => {
