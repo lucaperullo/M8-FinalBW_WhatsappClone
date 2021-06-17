@@ -51,7 +51,7 @@ const ChatContainer = styled.div`
 const SenderBubble = styled.p`
   color: white;
   padding: 10px;
-  background-color: limegreen;
+  background-color: #056162;
   border-radius: 10px;
   display: inline-block;
   position: absolute;

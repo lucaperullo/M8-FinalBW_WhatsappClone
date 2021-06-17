@@ -20,7 +20,7 @@ const NewContactModal = (props: ModalProps) => {
       backdropDismiss={false}
     >
       <IonHeader>
-        <IonText color="primary">
+        <IonText color="text">
           <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‎‎‎Add a new contact</h1>
         </IonText>
       </IonHeader>
