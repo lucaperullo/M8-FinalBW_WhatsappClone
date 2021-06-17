@@ -37,21 +37,22 @@ ion-content ::-webkit-scrollbar {
 } */
 
 /* width */
-::-webkit-scrollbar {
-  width: 10px;
+*::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #000000;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background-color: #ffffffc4;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: rgb(48, 184, 7);
 }

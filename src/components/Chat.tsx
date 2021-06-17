@@ -1,49 +1,50 @@
-import React, { useEffect } from "react"
-import { IonContent, IonItem, IonTextarea } from "@ionic/react"
-import styled from "styled-components"
+import React, { useEffect } from "react";
+import { IonContent, IonItem, IonTextarea } from "@ionic/react";
+import styled from "styled-components";
+import io from "socket.io-client";
+import "../theme/style.css";
 
-import io from "socket.io-client"
-const endpoint = "localhost:5000"
-const socket = io(endpoint, { transports: ["websocket"] })
+const endpoint = "localhost:5000";
+const socket = io(endpoint, { transports: ["websocket"] });
 
 const Chat = () => {
   return (
-    <IonContainer fullscreen>
+    <IonContent fullscreen>
       <ChatContainer>
         <BlockDiv>
           <SenderBubble>[THIS IS SENDER CHAT]</SenderBubble>
         </BlockDiv>
         <BlockDiv>
-        <ReceivedBubble>[THIS IS RECEIVED CHAT]</ReceivedBubble>
+          <ReceivedBubble>[THIS IS RECEIVED CHAT]</ReceivedBubble>
         </BlockDiv>
       </ChatContainer>
-      <IonItems>
+      <IonItem>
         <IonTextarea
           placeholder="Write some text..."
           // value={text}
           // onIonChange={e => setText(e.detail.value!)}
         />
-      </IonItems>
-    </IonContainer>
-  )
-}
+      </IonItem>
+    </IonContent>
+  );
+};
 
 const IonContainer = styled(IonContent)`
   display: flex;
   flex-direction: column-reverse;
-`
+`;
 const IonItems = styled(IonItem)`
   position: fixed;
   bottom: 1rem;
   width: 62%;
-`
+`;
 const ChatContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
-  height: 100%;
-   width: 100%;
-  padding-bottom: 20vh;
-`
+  height: 90vh;
+  width: 100%;
+  padding-bottom: 10vh;
+`;
 const SenderBubble = styled.p`
   color: white;
   padding: 10px;
@@ -51,8 +52,8 @@ const SenderBubble = styled.p`
   border-radius: 10px;
   display: inline-block;
   position: absolute;
-  right: 0
-`
+  right: 0;
+`;
 const ReceivedBubble = styled.p`
   color: black;
   padding: 10px;
@@ -60,13 +61,13 @@ const ReceivedBubble = styled.p`
   border-radius: 10px;
   display: inline-block;
   position: absolute;
-  left: 0
-`
+  left: 0;
+`;
 const BlockDiv = styled.div`
   width: 100%;
   margin-top: 7.5px;
   margin-bottom: 7.5px;
   position: relative;
   display: block;
-`
+`;
 export default Chat;

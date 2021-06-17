@@ -8,14 +8,16 @@ import styled from 'styled-components';
 
 const MainPage = () => {
   return (
-    <IonContent fullscreen>
+    // <IonContent fullscreen>
+    <div>
       <IonGrid>
       <IonRow>
-        <ModCol size="4"><Contacts /></ModCol>
+        <ModCol size="3"><Contacts /></ModCol>
         <ModCol><Chat /></ModCol>
       </IonRow>
       </IonGrid>
-    </IonContent>
+      </div>
+    // </IonContent>
 
   );
 };

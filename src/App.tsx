@@ -55,15 +55,7 @@ const App: React.FC = () => (
   <Provider store={store}>
     <IonApp>
       <IonReactRouter>
-        <IonItem>
-          <IonIcon slot="end" icon={Light ? sunny : moon} />
-
-          <IonToggle
-            slot="end"
-            name="darkMode"
-            onIonChange={toggleDarkModeHandler}
-          />
-        </IonItem>
+       
         <Route path="/" exact component={LoginPage} />
         <Route path="/chat" exact component={MainPage} />
       </IonReactRouter>
