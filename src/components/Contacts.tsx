@@ -20,13 +20,10 @@ import { backend } from "../config"
 import { useContacts } from "../hooks/useContacts"
 
 const Contacts: React.FC = () => {
-  // const queryClient = useQueryClient();
   const { status, data, error, isFetching } = useContacts()
 
   const [modalShow, setModalShow] = useState<boolean>(false)
   const [SettingsModalShow, setSettingsModalShow] = useState<boolean>(false)
-
-  console.log(data)
 
   return (
     <IonContent fullscreen>
