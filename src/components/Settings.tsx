@@ -7,8 +7,10 @@ import {
   IonInput,
   IonText,
   IonToggle,
+  IonIcon,
 } from "@ionic/react";
 import { moon, sunny } from "ionicons/icons";
+import "../theme/style.css";
 interface SettingsProps {
   modalShow: boolean;
   setModalShow: (arg0: boolean) => void;
@@ -38,19 +40,26 @@ const SettingsModal = (props: SettingsProps) => {
           <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‎‎‎Add a new contact</h1>
         </IonText>
       </IonHeader>
-      <IonItem>
-        {/* <IonIcon slot="end" icon={Light ? sunny : moon} /> */}
+      <div className="modalContainer" style={{ width: "100%" }}>
+        <IonItem>
+          <IonText color="warning">
+            <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Dark/Light</h1>
+          </IonText>
+          <IonIcon slot="end" icon={Light ? sunny : moon} />
 
-        <IonToggle
-          slot="end"
-          name="darkMode"
-          onIonChange={toggleDarkModeHandler}
-        />
-      </IonItem>
-      <IonButton onClick={() => props.setModalShow(false)}>
-        Do something
-      </IonButton>
-      <IonButton onClick={() => props.setModalShow(false)}>Close</IonButton>
+          <IonToggle
+            slot="end"
+            name="darkMode"
+            onIonChange={toggleDarkModeHandler}
+          />
+        </IonItem>
+        <div className="modalButtons">
+          <IonButton onClick={() => props.setModalShow(false)}>
+            Do something
+          </IonButton>
+          <IonButton onClick={() => props.setModalShow(false)}>Close</IonButton>
+        </div>
+      </div>
     </IonModal>
   );
 };

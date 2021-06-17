@@ -35,7 +35,14 @@
 ion-content ::-webkit-scrollbar {
     display: none;
 } */
-
+.modalContainer {
+  height: 100%;
+}
+.modalButtons {
+  position: absolute;
+  bottom: 25px;
+  right: 25px;
+}
 /* width */
 ::-webkit-scrollbar {
   width: 6px;
