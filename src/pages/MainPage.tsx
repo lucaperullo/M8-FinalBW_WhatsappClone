@@ -7,20 +7,10 @@ import styled from "styled-components";
 
 const MainPage = () => {
   return (
-    // <IonContent fullscreen>
-    <div>
-      <IonGrid>
-        <IonRow>
-          <ModCol size="3">
-            <Contacts />
-          </ModCol>
-          <ModCol>
-            <Chat />
-          </ModCol>
-        </IonRow>
-      </IonGrid>
-    </div>
-    // </IonContent>
+    <IonContent fullscreen>
+      <Contacts />
+      <Chat />
+    </IonContent>
   );
 };
 
