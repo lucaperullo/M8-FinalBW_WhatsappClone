@@ -57,9 +57,6 @@ const Contacts: React.FC = () => {
               onClick={() => setSettingsModalShow(true)}
             ></IonIcon>
           </IonItem>
-        </IonHeader>
-        <IonContent id="content">
-    
           <IonSearchbar
           // value={searchText}
           // onIonChange={e => setSearchText(e.detail.value!)}
@@ -87,6 +84,10 @@ const Contacts: React.FC = () => {
             setModalShow={setSettingsModalShow}
           />
           <NewContactModal modalShow={modalShow} setModalShow={setModalShow} />
+        </IonHeader>
+        <IonContent id="content">
+    
+         
         </IonContent>
       </IonMenu>
       <IonRouterOutlet id="main"></IonRouterOutlet>
