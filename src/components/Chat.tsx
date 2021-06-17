@@ -10,12 +10,12 @@ const Chat = () => {
   return (
     <IonContainer fullscreen>
       <ChatContainer>
-        <div>
+        <BlockDiv>
           <SenderBubble>[THIS IS SENDER CHAT]</SenderBubble>
-        </div>
-        <div>
-          <ReceivedBubble>[THIS IS RECEIVED CHAT]</ReceivedBubble>
-        </div>
+        </BlockDiv>
+        <BlockDiv>
+        <ReceivedBubble>[THIS IS RECEIVED CHAT]</ReceivedBubble>
+        </BlockDiv>
       </ChatContainer>
       <IonItems>
         <IonTextarea
@@ -41,26 +41,32 @@ const ChatContainer = styled.div`
   display: flex;
   flex-direction: column-reverse;
   height: 100%;
-  width: 100%;
+   width: 100%;
   padding-bottom: 20vh;
 `
-const SenderBubble = styled.span`
+const SenderBubble = styled.p`
   color: white;
-  display: inline-block;
   padding: 10px;
   background-color: limegreen;
   border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  display: inline-block;
+  position: absolute;
+  right: 0
 `
-
-const ReceivedBubble = styled.span`
+const ReceivedBubble = styled.p`
   color: black;
   padding: 10px;
   background-color: white;
   border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  display: inline-block;
+  position: absolute;
+  left: 0
 `
-
-export default Chat
+const BlockDiv = styled.div`
+  width: 100%;
+  margin-top: 7.5px;
+  margin-bottom: 7.5px;
+  position: relative;
+  display: block;
+`
+export default Chat;

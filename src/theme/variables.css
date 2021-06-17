@@ -536,3 +536,7 @@ body.light {
 
   --ion-card-background: #1e1e1e;
 }
+
+.-add-contact-modal .modal-wrapper {
+  padding: 3rem;
+}
