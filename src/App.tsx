@@ -42,8 +42,8 @@ const App: React.FC = () => (
   <Provider store={store}>
     <IonApp>
       <IonReactRouter>
-        <Route path="/" exact component={MenuExample} />
-        <Route path="/asd" exact component={LoginPage} />
+        <Route path="/asd" exact component={MenuExample} />
+        <Route path="/" exact component={LoginPage} />
         <Route path="/chat" exact component={MainPage} />
       </IonReactRouter>
     </IonApp>
