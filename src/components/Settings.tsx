@@ -8,15 +8,15 @@ import {
   IonText,
 } from "@ionic/react";
 
-interface ModalProps {
+interface SettingsProps {
   modalShow: boolean;
   setModalShow: (arg0: boolean) => void;
 }
-const NewContactModal = (props: ModalProps) => {
+const SettingsModal = (props: SettingsProps) => {
   return (
     <IonModal
       isOpen={props.modalShow}
-      cssClass="add-contact-modal"
+      cssClass="settings-modal"
       backdropDismiss={false}
     >
       <IonHeader>
@@ -24,20 +24,13 @@ const NewContactModal = (props: ModalProps) => {
           <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‎‎‎Add a new contact</h1>
         </IonText>
       </IonHeader>
-      <IonItem style={{ borderRadius: "10px", marginBottom: "5px" }}>
-        <IonLabel>Phone Number: </IonLabel>
-        <IonInput type="text"></IonInput>
-      </IonItem>
-      <IonItem style={{ borderRadius: "10px", marginBottom: "5px" }}>
-        <IonLabel>Name: </IonLabel>
-        <IonInput type="text"></IonInput>
-      </IonItem>
+
       <IonButton onClick={() => props.setModalShow(false)}>
-        Add contact
+        Do something
       </IonButton>
       <IonButton onClick={() => props.setModalShow(false)}>Close</IonButton>
     </IonModal>
   );
 };
 
-export default NewContactModal;
+export default SettingsModal;

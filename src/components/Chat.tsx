@@ -57,7 +57,7 @@ const SenderBubble = styled.p`
 const ReceivedBubble = styled.p`
   color: black;
   padding: 10px;
-  background-color: white;
+  background-color: red;
   border-radius: 10px;
   display: inline-block;
   position: absolute;

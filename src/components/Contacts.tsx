@@ -1,33 +1,64 @@
-import React, { useState } from 'react';
-import { IonButton, IonContent, IonItem, IonAvatar, IonLabel, IonSearchbar } from '@ionic/react';
-import NewContactModal from './NewContactModal';
+import React, { useState } from "react";
+import {
+  IonButton,
+  IonContent,
+  IonItem,
+  IonAvatar,
+  IonLabel,
+  IonSearchbar,
+  IonIcon,
+} from "@ionic/react";
+import { settingsOutline } from "ionicons/icons";
+import NewContactModal from "./NewContactModal";
 
-import '../theme/style.css'
+import "../theme/style.css";
+import SettingsModal from "./Settings";
 
-const Contacts: React.FC = () =>{
-
-  const [modalShow, setModalShow] = useState<boolean>(false)
-
-  return(
-    <IonContent
-    fullscreen>
-        <IonSearchbar 
-        // value={searchText} 
-        // onIonChange={e => setSearchText(e.detail.value!)}
-        ></IonSearchbar>
-        <IonItem>
+const Contacts: React.FC = () => {
+  const [modalShow, setModalShow] = useState<boolean>(false);
+  const [SettingsModalShow, setSettingsModalShow] = useState<boolean>(false);
+  return (
+    <IonContent fullscreen>
+      <IonItem>
         <IonAvatar slot="start">
-          <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y" alt="profileImg" />
+          <img
+            src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+            alt="profileImg"
+          />
+        </IonAvatar>
+        <IonIcon
+          className="settings"
+          slot="end"
+          icon={settingsOutline}
+          onClick={() => setSettingsModalShow(true)}
+        ></IonIcon>
+      </IonItem>
+      <IonSearchbar
+      // value={searchText}
+      // onIonChange={e => setSearchText(e.detail.value!)}
+      ></IonSearchbar>
+      <IonItem>
+        <IonAvatar slot="start">
+          <img
+            src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
+            alt="profileImg"
+          />
         </IonAvatar>
         <IonLabel>
           <h3>[CONTACT NAME]</h3>
           <p>[CONTACT'S STATUS]</p>
         </IonLabel>
       </IonItem>
-      <IonButton onClick={() => setModalShow(true)}>Add contact</IonButton>
-      <NewContactModal modalShow={modalShow} setModalShow={setModalShow}/>
+      <IonButton style={{ display: "flex" }} onClick={() => setModalShow(true)}>
+        Add contact
+      </IonButton>
+      <SettingsModal
+        modalShow={SettingsModalShow}
+        setModalShow={setSettingsModalShow}
+      />
+      <NewContactModal modalShow={modalShow} setModalShow={setModalShow} />
     </IonContent>
-)
-} 
+  );
+};
 
-export default Contacts
+export default Contacts;
