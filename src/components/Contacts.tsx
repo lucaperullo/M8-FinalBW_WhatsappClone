@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"
 import {
   IonButton,
   IonContent,
@@ -7,16 +7,31 @@ import {
   IonLabel,
   IonSearchbar,
   IonIcon,
-} from "@ionic/react";
-import { settingsOutline } from "ionicons/icons";
-import NewContactModal from "./NewContactModal";
+} from "@ionic/react"
+import { settingsOutline } from "ionicons/icons"
+import NewContactModal from "./NewContactModal"
 
-import "../theme/style.css";
-import SettingsModal from "./Settings";
+import "../theme/style.css"
+import SettingsModal from "./Settings"
+import { Contact } from "../types/"
+import { useQuery } from "react-query"
+import { backend } from "../config"
 
 const Contacts: React.FC = () => {
-  const [modalShow, setModalShow] = useState<boolean>(false);
-  const [SettingsModalShow, setSettingsModalShow] = useState<boolean>(false);
+  // const [contacts, setContacts] = useState<Contact[]>()
+  const { isLoading, error, data } = useQuery("fetchContacts", () => {
+    backend("/api/contacts/07367329294")
+  })
+
+  useEffect(() => {
+    console.log(isLoading)
+    console.log(error)
+    console.log(data)
+  }, [])
+
+  const [modalShow, setModalShow] = useState<boolean>(false)
+  const [SettingsModalShow, setSettingsModalShow] = useState<boolean>(false)
+
   return (
     <IonContent fullscreen>
       <IonItem>
@@ -52,13 +67,10 @@ const Contacts: React.FC = () => {
       <IonButton style={{ display: "flex" }} onClick={() => setModalShow(true)}>
         Add contact
       </IonButton>
-      <SettingsModal
-        modalShow={SettingsModalShow}
-        setModalShow={setSettingsModalShow}
-      />
+      <SettingsModal modalShow={SettingsModalShow} setModalShow={setSettingsModalShow} />
       <NewContactModal modalShow={modalShow} setModalShow={setModalShow} />
     </IonContent>
-  );
-};
+  )
+}
 
-export default Contacts;
+export default Contacts
