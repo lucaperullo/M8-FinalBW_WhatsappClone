@@ -1,28 +1,28 @@
-import { IonItem, IonInput, IonLabel, IonButton } from "@ionic/react";
-import { useState } from "react";
-import styled from "styled-components";
-import { backend } from "../config";
+import { IonItem, IonInput, IonLabel, IonButton } from "@ionic/react"
+import { useState } from "react"
+import styled from "styled-components"
+import { backend } from "../config"
 
 const LoginPage = () => {
-  const [phoneNumber, setPhoneNumber] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+  const [phoneNumber, setPhoneNumber] = useState<string>("")
+  const [password, setPassword] = useState<string>("")
 
   const loginHandler = async (e: any) => {
-    e.preventDefault();
+    e.preventDefault()
     const res = await backend.post("/api/user/login", {
       phoneNumber,
-    });
-    console.log(res);
+    })
+    console.log(res)
     // if login successful push route to /chat
-    res && window.location.assign("/chat");
-    !res && console.error({ error: res });
-  };
+    res && window.location.assign("/chat")
+    !res && console.error({ error: res })
+  }
   return (
     <>
       <Container>
         <form
           onSubmit={(e) => {
-            loginHandler(e);
+            loginHandler(e)
           }}
         >
           <IonItem style={{ borderRadius: "10px", marginBottom: "5px" }}>
@@ -47,8 +47,8 @@ const LoginPage = () => {
         </form>
       </Container>
     </>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   display: flex;
@@ -59,6 +59,6 @@ const Container = styled.div`
   top: 50 vh;
   align-self: center;
   justify-self: center;
-`;
+`
 
-export default LoginPage;
+export default LoginPage
