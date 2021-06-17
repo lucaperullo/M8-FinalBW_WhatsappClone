@@ -3,7 +3,7 @@ import axios from "axios"
 let baseURL = ""
 
 if (process.env.NODE_ENV !== "production") {
-  baseURL = "http://localhost:3001"
+  baseURL = "http://localhost:5000"
 } else {
   baseURL = process.env.REACT_APP_PROD || ""
 }

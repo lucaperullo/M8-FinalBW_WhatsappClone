@@ -1,13 +1,20 @@
 import { IonItem, IonInput, IonLabel, IonButton } from "@ionic/react"
 import { useState } from "react"
 import styled from "styled-components"
+import { backend } from "../config"
 
 const LoginPage = () => {
   const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [password, setPassword] = useState<string>("")
-  const loginHandler = (e: any) => {
+
+  const loginHandler = async (e: any) => {
     e.preventDefault()
-    window.location.assign("/chat")
+    const { data } = await backend.post("/api/users/login", {
+      phoneNumber,
+    })
+    // if login successful push route to /chat
+    data && window.location.assign("/chat")
+    !data && console.error({ error: data.status })
   }
   return (
     <>

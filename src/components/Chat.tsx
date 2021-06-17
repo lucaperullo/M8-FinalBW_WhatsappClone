@@ -3,7 +3,7 @@ import { IonContent, IonItem, IonTextarea } from "@ionic/react"
 import styled from "styled-components"
 
 import io from "socket.io-client"
-const endpoint = "localhost:3001"
+const endpoint = "localhost:5000"
 const socket = io(endpoint, { transports: ["websocket"] })
 
 const Chat = () => {
