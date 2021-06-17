@@ -19,10 +19,6 @@ import NewContactModal from "./NewContactModal"
 
 import "../theme/style.css"
 import SettingsModal from "./Settings"
-import { Contact } from "../types/"
-import { useQuery } from "react-query"
-import axios from "axios"
-import { backend } from "../config"
 import { useContacts } from "../hooks/useContacts"
 
 const Contacts: React.FC = () => {
