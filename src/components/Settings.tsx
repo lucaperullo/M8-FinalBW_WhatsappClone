@@ -37,13 +37,13 @@ const SettingsModal = (props: SettingsProps) => {
     >
       <IonHeader>
         <IonText color="primary">
-          <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ ‎‏‏‎‎‎‎‎Add a new contact</h1>
+          <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Settings</h1>
         </IonText>
       </IonHeader>
       <div className="modalContainer" style={{ width: "100%" }}>
         <IonItem>
-          <IonText color="warning">
-            <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Dark/Light</h1>
+          <IonText>
+            <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Theme</h1>
           </IonText>
           <IonIcon slot="end" icon={Light ? sunny : moon} />
 
@@ -54,8 +54,13 @@ const SettingsModal = (props: SettingsProps) => {
           />
         </IonItem>
         <div className="modalButtons">
-          <IonButton onClick={() => props.setModalShow(false)}>
-            Do something
+          <IonButton
+            color="danger"
+            onClick={() => {
+               window.location.assign("/");
+            }}
+          >
+            Log out
           </IonButton>
           <IonButton onClick={() => props.setModalShow(false)}>Close</IonButton>
         </div>
