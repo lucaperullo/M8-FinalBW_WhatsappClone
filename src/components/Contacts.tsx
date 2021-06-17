@@ -15,22 +15,18 @@ import "../theme/style.css"
 import SettingsModal from "./Settings"
 import { Contact } from "../types/"
 import { useQuery } from "react-query"
+import axios from "axios"
 import { backend } from "../config"
+import { useContacts } from "../hooks/useContacts"
 
 const Contacts: React.FC = () => {
-  // const [contacts, setContacts] = useState<Contact[]>()
-  const { isLoading, error, data } = useQuery("fetchContacts", () => {
-    backend("/api/contacts/07367329294")
-  })
-
-  useEffect(() => {
-    console.log(isLoading)
-    console.log(error)
-    console.log(data)
-  }, [])
+  // const queryClient = useQueryClient();
+  const { status, data, error, isFetching } = useContacts()
 
   const [modalShow, setModalShow] = useState<boolean>(false)
   const [SettingsModalShow, setSettingsModalShow] = useState<boolean>(false)
+
+  console.log(data)
 
   return (
     <IonContent fullscreen>

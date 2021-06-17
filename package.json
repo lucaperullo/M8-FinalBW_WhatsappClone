@@ -74,7 +74,8 @@
     ]
   },
   "devDependencies": {
-    "@capacitor/cli": "3.0.1"
+    "@capacitor/cli": "3.0.1",
+    "@types/react-query": "^1.2.9"
   },
   "description": "An Ionic project"
 }
