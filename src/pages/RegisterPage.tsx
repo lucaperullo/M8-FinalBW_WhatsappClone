@@ -6,7 +6,10 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState<string>("");
-  const [phoneNumber, setUserNumber] = useLocalStorage<string>("userNumber", "")
+  const [phoneNumber, setPhoneNumber] = useLocalStorage<string>(
+    "userNumber",
+    ""
+  );
 
   const registerHandler = async (e: any) => {
     e.preventDefault();
