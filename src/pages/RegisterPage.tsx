@@ -18,15 +18,18 @@ const RegisterPage = () => {
       name: username,
     });
 
-    console.log(res);
-    // if login successful push route to /chat
-    // res && window.location.assign("/chat");
-    !res && console.error({ error: res });
+    res.status === 200 && window.location.assign("/chat");
   };
   return (
     <>
       <Container>
         <form
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
           onSubmit={(e) => {
             registerHandler(e);
           }}
@@ -35,23 +38,18 @@ const RegisterPage = () => {
             style={{
               borderRadius: "10px",
               marginBottom: "5px",
+              width: "250px",
             }}
           >
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                width: "250px",
-              }}
-            >
-              <IonLabel>Phone : </IonLabel>
+            <div>
+              <IonLabel style={{ paddingTop: "10px" }}>Phone : </IonLabel>
               <IonInput
                 type="text"
                 value={phoneNumber}
                 placeholder="Enter Number"
                 onIonChange={(e) => setPhoneNumber(e.detail.value!)}
               ></IonInput>
-              <IonLabel>Username : </IonLabel>
+              <IonLabel style={{ paddingTop: "10px" }}>Username : </IonLabel>
               <IonInput
                 type="text"
                 value={username}
