@@ -54,7 +54,7 @@ const Contacts: React.FC = () => {
                       <img src={data.profileImg} alt="profileImg" />
                     </IonAvatar>
                     <IonLabel>
-                      <h3>{data.name}</h3>
+                      <h3>{data.contactsName}</h3>
                       <p>{data.about}</p>
                     </IonLabel>
                   </IonItem>
