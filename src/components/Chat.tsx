@@ -20,7 +20,7 @@ import { settingsOutline } from "ionicons/icons";
 import { useContacts } from "../hooks/useContacts";
 import { useAllGroups } from "../hooks/useGroups";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-
+import { sendSharp } from "ionicons/icons";
 // socket
 const endpoint = "http://localhost:5000";
 const socket = io(endpoint, { transports: ["websocket"] });
@@ -56,6 +56,7 @@ const Chat = () => {
           onKeyPress={handleSendMessage}
           onIonChange={(e) => setMessage(e.detail.value!)}
         />
+        <IonIcon slot="end" icon={sendSharp} />
       </IonItem>
       <>
         <IonMenu

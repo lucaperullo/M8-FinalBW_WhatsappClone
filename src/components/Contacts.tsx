@@ -53,17 +53,19 @@ const Contacts: React.FC = () => {
             }
           ></IonSearchbar>
           {data ? (
-            data.map((data) => {
+            data.map((data, i) => {
               return (
-                <IonItem>
-                  <IonAvatar slot="start">
-                    <img src={data.profileImg} alt="profileImg" />
-                  </IonAvatar>
-                  <IonLabel>
-                    <h3>{data.name}</h3>
-                    <p>{data.about}</p>
-                  </IonLabel>
-                </IonItem>
+                <div key={i}>
+                  <IonItem>
+                    <IonAvatar slot="start">
+                      <img src={data.profileImg} alt="profileImg" />
+                    </IonAvatar>
+                    <IonLabel>
+                      <h3>{data.name}</h3>
+                      <p>{data.about}</p>
+                    </IonLabel>
+                  </IonItem>
+                </div>
               );
             })
           ) : (
