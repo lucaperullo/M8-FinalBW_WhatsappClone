@@ -2,10 +2,11 @@ import { IonItem, IonInput, IonLabel, IonButton } from "@ionic/react";
 import { useState } from "react";
 import styled from "styled-components";
 import { backend } from "../config";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const RegisterPage = () => {
   const [username, setUsername] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useState<string>("");
+  const [phoneNumber, setUserNumber] = useLocalStorage<string>("userNumber", "")
 
   const registerHandler = async (e: any) => {
     e.preventDefault();
