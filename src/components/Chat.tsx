@@ -498,7 +498,7 @@ const ChatContainer = styled.div`
   height: 90vh;
   width: 100vw;
   padding-bottom: 10vh;
-`;
+`
 
 const BlockDiv = styled.div`
   width: 100%;

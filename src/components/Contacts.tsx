@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react"
 import {
   IonButton,
   IonContent,
@@ -14,29 +14,24 @@ import {
   IonList,
   IonRouterOutlet,
   IonSkeletonText,
-} from "@ionic/react";
-import { settingsOutline } from "ionicons/icons";
-import NewContactModal from "./NewContactModal";
+} from "@ionic/react"
+import { settingsOutline } from "ionicons/icons"
+import NewContactModal from "./NewContactModal"
 
-import "../theme/style.css";
-import SettingsModal from "./Settings";
-import { useContacts } from "../hooks/useContacts";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import "../theme/style.css"
+import SettingsModal from "./Settings"
+import { useContacts } from "../hooks/useContacts"
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
 const Contacts: React.FC = () => {
-  const [userNumber] = useLocalStorage<string>("userNumber", "");
-  const { status, data, error, isFetching } = useContacts(userNumber!);
+  const [userNumber] = useLocalStorage<string>("userNumber", "")
+  const { status, data, error, isFetching } = useContacts(userNumber!)
 
-  const [modalShow, setModalShow] = useState<boolean>(false);
+  const [modalShow, setModalShow] = useState<boolean>(false)
 
   return (
     <>
-      <IonMenu
-        swipeGesture={true}
-        side="start"
-        menuId="main"
-        contentId="content"
-      >
+      <IonMenu swipeGesture={true} side="start" menuId="main" contentId="content">
         <IonHeader>
           <IonItem>
             <IonAvatar slot="start">
@@ -48,9 +43,7 @@ const Contacts: React.FC = () => {
           </IonItem>
           <IonSearchbar
             // value={searchText}
-            onIonChange={(e) =>
-              data?.filter((contact) => contact.name === e.detail.value!)
-            }
+            onIonChange={(e) => data?.filter((contact) => contact.contactsName === e.detail.value!)}
           ></IonSearchbar>
           {data ? (
             data.map((data, i) => {
@@ -66,7 +59,7 @@ const Contacts: React.FC = () => {
                     </IonLabel>
                   </IonItem>
                 </div>
-              );
+              )
             })
           ) : (
             <IonList>
@@ -265,10 +258,7 @@ const Contacts: React.FC = () => {
             </IonList>
           )}
 
-          <IonButton
-            style={{ display: "flex" }}
-            onClick={() => setModalShow(true)}
-          >
+          <IonButton style={{ display: "flex" }} onClick={() => setModalShow(true)}>
             Add contact
           </IonButton>
 
@@ -278,7 +268,7 @@ const Contacts: React.FC = () => {
       </IonMenu>
       <IonRouterOutlet id="main"></IonRouterOutlet>
     </>
-  );
-};
+  )
+}
 
-export default Contacts;
+export default Contacts
