@@ -69,10 +69,12 @@ const RegisterPage = () => {
 };
 
 const Container = styled.div`
+  background-image: url(${"https://www.transparenttextures.com/patterns/food.png"});
   display: flex;
   flex-direction: column;
   padding-top: 30vh;
-  width: 50vw;
+
+  width: 100vw;
   height: 100vh;
   top: 50 vh;
   align-self: center;
