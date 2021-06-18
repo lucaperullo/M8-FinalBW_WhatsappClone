@@ -46,10 +46,7 @@ const Chat = () => {
         padding: "100px",
       }}
     >
-      <ChatContainer>
-      
-     
-      </ChatContainer>
+      <ChatContainer></ChatContainer>
       <IonItem>
         <IonTextarea
           placeholder="Write some text..."
@@ -80,7 +77,7 @@ const Chat = () => {
                         <img src={data.profileImg} alt="profileImg" />
                       </IonAvatar>
                       <IonLabel>
-                        <h3>{data.name}</h3>
+                        <h3>{data.contactsName}</h3>
                         <p>{data.about}</p>
                       </IonLabel>
                     </IonItem>
@@ -117,7 +114,7 @@ const ChatContainer = styled.div`
   height: 90vh;
   width: 100vw;
   padding-bottom: 10vh;
-`;
+`
 
 const BlockDiv = styled.div`
   width: 100%;
