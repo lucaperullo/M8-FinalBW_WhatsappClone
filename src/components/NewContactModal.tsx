@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react"
+import { useState, useEffect } from "react"
 import { IonModal, IonButton, IonHeader, IonLabel, IonItem, IonInput, IonText } from "@ionic/react"
 
 import { useMutation } from "react-query"
@@ -13,15 +13,20 @@ const NewContactModal = (props: ModalProps) => {
   const [userNumber] = useLocalStorage("userNumber", "")
   const [contactsNumber, setContactsNumber] = useState("")
   const [contactsName, setContactsName] = useState("")
-  const mutation = useMutation((newContact: any) =>
-    backend.post(`/api/contact/${userNumber}`, newContact)
-  )
+  const mutation = useMutation((newContact: any) => {
+    console.log(newContact)
+    return backend.post(`/api/contact/${userNumber}`, newContact)
+  })
 
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault()
     mutation.mutate({ contactsNumber, contactsName })
     props.setModalShow(false)
   }
+
+  useEffect(() => {
+    console.log(contactsNumber)
+  }, [contactsNumber])
 
   return (
     <IonModal isOpen={props.modalShow} cssClass="add-contact-modal" backdropDismiss={false}>
@@ -33,11 +38,19 @@ const NewContactModal = (props: ModalProps) => {
         </IonHeader>
         <IonItem style={{ borderRadius: "10px", marginBottom: "5px" }}>
           <IonLabel>Phone Number: </IonLabel>
-          <IonInput onChange={(e: any) => setContactsNumber(e.target.value)} type="text"></IonInput>
+          <IonInput
+            value={contactsNumber}
+            onIonChange={(e: any) => setContactsNumber(e.target.value)}
+            type="text"
+          ></IonInput>
         </IonItem>
         <IonItem style={{ borderRadius: "10px", marginBottom: "5px" }}>
           <IonLabel>Name: </IonLabel>
-          <IonInput onChange={(e: any) => setContactsName(e.target.value)} type="text"></IonInput>
+          <IonInput
+            value={contactsName}
+            onIonChange={(e: any) => setContactsName(e.target.value)}
+            type="text"
+          ></IonInput>
         </IonItem>
         <IonButton type="submit" onClick={(e) => handleSubmit(e)}>
           Add contact

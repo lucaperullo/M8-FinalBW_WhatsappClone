@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react"
 import {
   IonAvatar,
   IonContent,
@@ -24,8 +24,8 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { sendSharp } from "ionicons/icons";
 import CreateGroup from "./CreateGroup";
 // socket
-const endpoint = "http://localhost:5000";
-const socket = io(endpoint, { transports: ["websocket"] });
+const endpoint = "http://localhost:5000"
+const socket = io(endpoint, { transports: ["websocket"] })
 
 const Chat = () => {
   const [userNumber] = useLocalStorage<string>("userNumber", "");
@@ -34,16 +34,16 @@ const Chat = () => {
   const { status, data, error, isFetching } = useContacts(userNumber);
   const [message, setMessage] = useState<string>("");
 
-  const handleSendMessage = (e: any) => {
-    if (e.KeyCode === 13) {
-      socket.emit("sendMessage", (message: string) => {});
-    }
-  };
+  const handleSendMessage = () => {
+    socket.emit("sendMessage", message, () => {
+      setMessage("")
+    })
+  }
 
   useEffect(() => {
-    console.log(status);
-    status === "success" && console.log(data);
-  }, [status]);
+    console.log(status)
+    status === "success" && console.log(data)
+  }, [status])
 
   return (
     <IonContent
@@ -73,12 +73,7 @@ const Chat = () => {
         </div>
       </IonItem>
       <>
-        <IonMenu
-          swipeGesture={true}
-          side="end"
-          menuId="main2"
-          contentId="content2"
-        >
+        <IonMenu swipeGesture={true} side="end" menuId="main2" contentId="content2">
           <IonHeader>
             <IonItem>
               <IonText color="primary">Start a new chat..</IonText>
@@ -521,18 +516,18 @@ const Chat = () => {
         setModalShow={setGroupModalShow}
       />
     </IonContent>
-  );
-};
+  )
+}
 
 const IonContainer = styled(IonContent)`
   display: flex;
   flex-direction: column-reverse;
-`;
+`
 const IonItems = styled(IonItem)`
   position: fixed;
   bottom: 1rem;
   width: 62%;
-`;
+`
 const ChatContainer = styled.div`
   padding: 70px;
   display: flex;
@@ -548,5 +543,5 @@ const BlockDiv = styled.div`
   margin-bottom: 7.5px;
   position: relative;
   display: block;
-`;
-export default Chat;
+`
+export default Chat
