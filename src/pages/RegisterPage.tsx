@@ -38,7 +38,7 @@ const RegisterPage = () => {
             style={{
               borderRadius: "10px",
               marginBottom: "5px",
-              width: "250px",
+              width: "350px",
             }}
           >
             <div>

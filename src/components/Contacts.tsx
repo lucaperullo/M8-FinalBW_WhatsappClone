@@ -20,12 +20,13 @@ import NewContactModal from "./NewContactModal";
 import "../theme/style.css";
 import SettingsModal from "./Settings";
 import { useContacts } from "../hooks/useContacts";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 const Contacts: React.FC = () => {
-  const { status, data, error, isFetching } = useContacts();
+  const [userNumber] = useLocalStorage<string>("userNumber", "");
+  const { status, data, error, isFetching } = useContacts(userNumber!);
 
   const [modalShow, setModalShow] = useState<boolean>(false);
- 
 
   return (
     <>
@@ -43,14 +44,11 @@ const Contacts: React.FC = () => {
                 alt="profileImg"
               />
             </IonAvatar>
-           
           </IonItem>
           <IonSearchbar
             // value={searchText}
             onIonChange={(e) =>
-              data?.filter((contact) =>
-               contact.name === e.detail.value!
-              )
+              data?.filter((contact) => contact.name === e.detail.value!)
             }
           ></IonSearchbar>
           {data ? (
@@ -77,7 +75,7 @@ const Contacts: React.FC = () => {
           >
             Add contact
           </IonButton>
-         
+
           <NewContactModal modalShow={modalShow} setModalShow={setModalShow} />
         </IonHeader>
         <IonContent id="content"></IonContent>
