@@ -2,17 +2,19 @@ import { IonItem, IonInput, IonLabel, IonButton } from "@ionic/react"
 import { useState } from "react"
 import styled from "styled-components"
 import { backend } from "../config"
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
 const LoginPage = () => {
+  const [userNumber, setUserNumber] = useLocalStorage<string>("userNumber", "")
   const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [password, setPassword] = useState<string>("")
 
   const loginHandler = async (e: any) => {
+    setUserNumber(phoneNumber)
     e.preventDefault()
     const res = await backend.post("/api/user/login", {
       phoneNumber,
     })
-    console.log(res)
     // if login successful push route to /chat
     res && window.location.assign("/chat")
     !res && console.error({ error: res })
