@@ -51,6 +51,7 @@ const SettingsModal = (props: SettingsProps) => {
           <IonIcon slot="end" icon={dark ? sunny : moon} />
 
           <IonToggle
+            checked={dark}
             slot="end"
             name="darkMode"
             onIonChange={toggleDarkModeHandler}
