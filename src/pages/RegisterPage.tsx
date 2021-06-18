@@ -1,36 +1,31 @@
-import { IonItem, IonInput, IonLabel, IonButton } from "@ionic/react";
-import { useState } from "react";
-import styled from "styled-components";
-import { backend } from "../config";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { IonItem, IonInput, IonLabel, IonButton } from "@ionic/react"
+import { useState } from "react"
+import styled from "styled-components"
+import { backend } from "../config"
+import { useLocalStorage } from "../hooks/useLocalStorage"
 
 const RegisterPage = () => {
-  const [username, setUsername] = useState<string>("");
-  const [phoneNumber, setPhoneNumber] = useLocalStorage<string>(
-    "userNumber",
-    ""
-  );
+  const [username, setUsername] = useState<string>("")
+  const [userNumber, setUserNumber] = useLocalStorage<string>("userNumber", "")
 
   const registerHandler = async (e: any) => {
-    e.preventDefault();
-    localStorage.setItem("phone-number", phoneNumber);
-    console.log(phoneNumber, username);
+    e.preventDefault()
     const res = await backend.post("/api/user/register", {
-      userNumber: phoneNumber,
+      userNumber: userNumber,
       name: username,
-    });
+    })
 
-    console.log(res);
+    console.log(res)
     // if login successful push route to /chat
     // res && window.location.assign("/chat");
-    !res && console.error({ error: res });
-  };
+    !res && console.error({ error: res })
+  }
   return (
     <>
       <Container>
         <form
           onSubmit={(e) => {
-            registerHandler(e);
+            registerHandler(e)
           }}
         >
           <IonItem
@@ -43,9 +38,9 @@ const RegisterPage = () => {
               <IonLabel>Phone : </IonLabel>
               <IonInput
                 type="text"
-                value={phoneNumber}
+                value={userNumber}
                 placeholder="Enter Number"
-                onIonChange={(e) => setPhoneNumber(e.detail.value!)}
+                onIonChange={(e) => setUserNumber(e.detail.value!)}
               ></IonInput>
               <IonLabel>Username : </IonLabel>
               <IonInput
@@ -69,8 +64,8 @@ const RegisterPage = () => {
         </form>
       </Container>
     </>
-  );
-};
+  )
+}
 
 const Container = styled.div`
   background-image: url(${"https://www.transparenttextures.com/patterns/food.png"});
@@ -83,6 +78,6 @@ const Container = styled.div`
   top: 50 vh;
   align-self: center;
   justify-self: center;
-`;
+`
 
-export default RegisterPage;
+export default RegisterPage
