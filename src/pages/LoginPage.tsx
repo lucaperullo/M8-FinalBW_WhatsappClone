@@ -6,15 +6,14 @@ import { useLocalStorage } from "../hooks/useLocalStorage"
 
 const LoginPage = () => {
   const [userNumber, setUserNumber] = useLocalStorage<string>("userNumber", "")
-  const [phoneNumber, setPhoneNumber] = useState<string>("")
   const [password, setPassword] = useState<string>("")
 
   const loginHandler = async (e: any) => {
-    setUserNumber(phoneNumber)
     e.preventDefault()
     const res = await backend.post("/api/user/login", {
-      phoneNumber,
+      userNumber,
     })
+    console.log(res)
     // if login successful push route to /chat
     res && window.location.assign("/chat")
     !res && console.error({ error: res })
@@ -31,9 +30,9 @@ const LoginPage = () => {
             <IonLabel>Phone : </IonLabel>
             <IonInput
               type="text"
-              value={phoneNumber}
+              value={userNumber}
               placeholder="Enter Number"
-              onIonChange={(e) => setPhoneNumber(e.detail.value!)}
+              onIonChange={(e) => setUserNumber(e.detail.value!)}
             ></IonInput>
           </IonItem>
           {/* <IonItem style={{ borderRadius: "10px", marginBottom: "5px" }}>
