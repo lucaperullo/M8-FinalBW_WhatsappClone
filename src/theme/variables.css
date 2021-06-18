@@ -4,7 +4,9 @@ ion-content {
   overflow: auto;
 }
 
-
+.chat-container {
+  background-image: url(https://www.transparenttextures.com/patterns/green-gobbler.png);
+}
 
 /* .ion-color-text {
   --ion-color-base: var(--ion-color-text);
@@ -396,7 +398,7 @@ body.dark {
   --ion-color-step-450: #7d7d7d;
   --ion-color-step-500: #898989;
   --ion-color-step-550: #949494;
-  --ion-color-step-600:#cacaca;
+  --ion-color-step-600: #cacaca;
   --ion-color-step-650: #acacac;
   --ion-color-step-700: #b8b8b8;
   --ion-color-step-750: #c4c4c4;
