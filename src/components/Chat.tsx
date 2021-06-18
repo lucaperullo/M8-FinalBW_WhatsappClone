@@ -43,17 +43,12 @@ const Chat = () => {
   return (
     <IonContent
       style={{
-        backgroundImage: "https://www.transparenttextures.com/patterns/black-scales.png",
+        padding: "100px",
       }}
-      fullscreen
     >
       <ChatContainer>
-        <BlockDiv>
-          <SenderBubble>[THIS IS SENDER CHAT]</SenderBubble>
-        </BlockDiv>
-        <BlockDiv>
-          <ReceivedBubble>[THIS IS RECEIVED CHAT]</ReceivedBubble>
-        </BlockDiv>
+      
+     
       </ChatContainer>
       <IonItem>
         <IonTextarea
@@ -116,30 +111,14 @@ const IonItems = styled(IonItem)`
   width: 62%;
 `
 const ChatContainer = styled.div`
+  padding: 70px;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
   height: 90vh;
-  width: 100%;
+  width: 100vw;
   padding-bottom: 10vh;
-`
-const SenderBubble = styled.p`
-  color: white;
-  padding: 10px;
-  background-color: #056162;
-  border-radius: 10px;
-  display: inline-block;
-  position: absolute;
-  right: 0;
-`
-const ReceivedBubble = styled.p`
-  color: white;
-  padding: 10px;
-  background-color: #455e5d;
-  border-radius: 10px;
-  display: inline-block;
-  position: absolute;
-  left: 0;
-`
+`;
+
 const BlockDiv = styled.div`
   width: 100%;
   margin-top: 7.5px;
