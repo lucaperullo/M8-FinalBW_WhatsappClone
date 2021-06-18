@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   IonModal,
   IonButton,
@@ -16,19 +17,21 @@ interface SettingsProps {
   setModalShow: (arg0: boolean) => void;
 }
 
-const Dark = document.body.classList.value === "dark";
+const Dark = document.body.classList.value;
 const Light = document.body.classList.value === "light";
 document.body.classList.add("dark");
-const toggleDarkModeHandler = () => {
-  console.log("running");
-  const lightDarkModeHandler = () => {
-    Light
-      ? document.body.classList.toggle("dark")
-      : document.body.classList.toggle("light");
-  };
-  lightDarkModeHandler();
-};
+
 const SettingsModal = (props: SettingsProps) => {
+  const [dark, setDark] = useState(false);
+  const toggleDarkModeHandler = () => {
+    setDark(!dark);
+    const lightDarkModeHandler = () => {
+      Light
+        ? document.body.classList.toggle("dark")
+        : document.body.classList.toggle("light");
+    };
+    lightDarkModeHandler();
+  };
   return (
     <IonModal
       isOpen={props.modalShow}
@@ -45,7 +48,7 @@ const SettingsModal = (props: SettingsProps) => {
           <IonText>
             <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Theme</h1>
           </IonText>
-          <IonIcon slot="end" icon={Light ? sunny : moon} />
+          <IonIcon slot="end" icon={dark ? sunny : moon} />
 
           <IonToggle
             slot="end"
@@ -57,7 +60,7 @@ const SettingsModal = (props: SettingsProps) => {
           <IonButton
             color="danger"
             onClick={() => {
-               window.location.assign("/");
+              window.location.assign("/");
             }}
           >
             Log out

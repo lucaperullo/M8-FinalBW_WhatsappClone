@@ -29,6 +29,7 @@ const Contacts: React.FC = () => {
 
   return (
     <>
+      {console.log(data)}
       <IonMenu
         swipeGesture={true}
         side="start"
@@ -56,6 +57,7 @@ const Contacts: React.FC = () => {
           // onIonChange={e => setSearchText(e.detail.value!)}
           ></IonSearchbar>
           <IonItem>
+           
             <IonAvatar slot="start">
               <img
                 src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
