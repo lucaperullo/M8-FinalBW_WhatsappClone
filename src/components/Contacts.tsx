@@ -25,11 +25,10 @@ const Contacts: React.FC = () => {
   const { status, data, error, isFetching } = useContacts();
 
   const [modalShow, setModalShow] = useState<boolean>(false);
-  const [SettingsModalShow, setSettingsModalShow] = useState<boolean>(false);
+ 
 
   return (
     <>
-      {console.log(data)}
       <IonMenu
         swipeGesture={true}
         side="start"
@@ -44,41 +43,41 @@ const Contacts: React.FC = () => {
                 alt="profileImg"
               />
             </IonAvatar>
-            <IonIcon
-              color="grey"
-              className="settings"
-              slot="end"
-              icon={settingsOutline}
-              onClick={() => setSettingsModalShow(true)}
-            ></IonIcon>
+           
           </IonItem>
           <IonSearchbar
-          // value={searchText}
-          // onIonChange={e => setSearchText(e.detail.value!)}
+            // value={searchText}
+            onIonChange={(e) =>
+              data?.filter((contact) =>
+               contact.name === e.detail.value!
+              )
+            }
           ></IonSearchbar>
-          <IonItem>
-           
-            <IonAvatar slot="start">
-              <img
-                src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y"
-                alt="profileImg"
-              />
-            </IonAvatar>
-            <IonLabel>
-              <h3>[CONTACT NAME]</h3>
-              <p>[CONTACT'S STATUS]</p>
-            </IonLabel>
-          </IonItem>
+          {data ? (
+            data.map((data) => {
+              return (
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <img src={data.profileImg} alt="profileImg" />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>{data.name}</h3>
+                    <p>{data.about}</p>
+                  </IonLabel>
+                </IonItem>
+              );
+            })
+          ) : (
+            <h1>loading</h1>
+          )}
+
           <IonButton
             style={{ display: "flex" }}
             onClick={() => setModalShow(true)}
           >
             Add contact
           </IonButton>
-          <SettingsModal
-            modalShow={SettingsModalShow}
-            setModalShow={setSettingsModalShow}
-          />
+         
           <NewContactModal modalShow={modalShow} setModalShow={setModalShow} />
         </IonHeader>
         <IonContent id="content"></IonContent>
