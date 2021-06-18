@@ -56,7 +56,7 @@ const Chat = () => {
           onKeyPress={handleSendMessage}
           onIonChange={(e) => setMessage(e.detail.value!)}
         />
-        <IonIcon slot="end" icon={sendSharp} />
+        <IonIcon color="primary" slot="end" icon={sendSharp} />
       </IonItem>
       <>
         <IonMenu
