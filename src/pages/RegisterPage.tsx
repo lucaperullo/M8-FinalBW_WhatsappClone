@@ -13,8 +13,6 @@ const RegisterPage = () => {
 
   const registerHandler = async (e: any) => {
     e.preventDefault();
-    localStorage.setItem("phone-number", phoneNumber);
-    console.log(phoneNumber, username);
     const res = await backend.post("/api/user/register", {
       userNumber: phoneNumber,
       name: username,
@@ -39,7 +37,13 @@ const RegisterPage = () => {
               marginBottom: "5px",
             }}
           >
-            <div style={{ display: "flex", flexDirection: "column" }}>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "250px",
+              }}
+            >
               <IonLabel>Phone : </IonLabel>
               <IonInput
                 type="text"
