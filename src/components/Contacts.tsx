@@ -66,7 +66,10 @@ const Contacts: React.FC = () => {
           {data ? (
             data.map((data, i) => {
               return (
-                <div key={i}>
+                <IonContent
+                  key={i}
+                  style={{ position: "absolute", top: "8vh", height: "90vh" }}
+                >
                   <IonItem>
                     <IonAvatar slot="start">
                       <img src={data.profileImg} alt="profileImg" />
@@ -76,204 +79,208 @@ const Contacts: React.FC = () => {
                       <p>{data.about}</p>
                     </IonLabel>
                   </IonItem>
-                </div>
+                </IonContent>
               );
             })
           ) : (
-            <IonList>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-              <IonItem>
-                <IonAvatar slot="start">
-                  <IonSkeletonText animated />
-                </IonAvatar>
-                <IonLabel>
-                  <h3>
-                    <IonSkeletonText animated style={{ width: "50%" }} />
-                  </h3>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "80%" }} />
-                  </p>
-                  <p>
-                    <IonSkeletonText animated style={{ width: "60%" }} />
-                  </p>
-                </IonLabel>
-              </IonItem>
-            </IonList>
+            <IonContent
+              style={{ position: "absolute", top: "12vh", height: "90vh" }}
+            >
+              <IonList>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+                <IonItem>
+                  <IonAvatar slot="start">
+                    <IonSkeletonText animated />
+                  </IonAvatar>
+                  <IonLabel>
+                    <h3>
+                      <IonSkeletonText animated style={{ width: "50%" }} />
+                    </h3>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "80%" }} />
+                    </p>
+                    <p>
+                      <IonSkeletonText animated style={{ width: "60%" }} />
+                    </p>
+                  </IonLabel>
+                </IonItem>
+              </IonList>
+            </IonContent>
           )}
 
           <NewContactModal modalShow={modalShow} setModalShow={setModalShow} />
