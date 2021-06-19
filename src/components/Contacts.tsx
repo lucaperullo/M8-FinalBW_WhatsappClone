@@ -15,7 +15,7 @@ import {
   IonRouterOutlet,
   IonSkeletonText,
 } from "@ionic/react";
-import { settingsOutline } from "ionicons/icons";
+import { addCircleSharp, settingsOutline } from "ionicons/icons";
 import NewContactModal from "./NewContactModal";
 
 import "../theme/style.css";
@@ -45,12 +45,14 @@ const Contacts: React.FC = () => {
                 alt="profileImg"
               />
             </IonAvatar>
-            <IonButton
-            style={{ display: "flex" }}
-            onClick={() => setModalShow(true)}
-          >
-            Add contact
-          </IonButton>
+            <IonIcon
+              color="primary"
+              slot="end"
+              style={{ display: "flex" }}
+              onClick={() => setModalShow(true)}
+              icon={addCircleSharp}
+              size="large"
+            />
           </IonItem>
           <IonSearchbar
             // value={searchText}
@@ -60,7 +62,7 @@ const Contacts: React.FC = () => {
               )
             }
           ></IonSearchbar>
-          
+
           {data ? (
             data.map((data, i) => {
               return (

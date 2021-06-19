@@ -42,6 +42,9 @@ const CreateGroup = (props: modalProps) => {
         </IonHeader>
         <div className="modalContainer" style={{ width: "100%" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
+            <IonItem>
+              <IonInput placeholder="Group Name"></IonInput>
+            </IonItem>
             <IonSearchbar
               // value={something}
               onIonChange={(e) => console.log(e.detail.value!)}
