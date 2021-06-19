@@ -17,7 +17,7 @@ import styled from "styled-components";
 import io from "socket.io-client";
 import "../theme/style.css";
 import SettingsModal from "./Settings";
-import { personAddOutline, settingsOutline } from "ionicons/icons";
+import { happySharp, personAddOutline, settingsOutline } from "ionicons/icons";
 import { useContacts } from "../hooks/useContacts";
 import { useAllGroups } from "../hooks/useGroups";
 import { useLocalStorage } from "../hooks/useLocalStorage";
@@ -53,6 +53,13 @@ const Chat = () => {
     >
       <ChatContainer></ChatContainer>
       <IonItem>
+        <IonIcon
+          style={{ position: "relative", top:"12px"}}
+          size="large"
+          color="primary"
+          slot="start"
+          icon={happySharp}
+        />
         <div
           className="chat-container"
           style={{
@@ -63,6 +70,7 @@ const Chat = () => {
           }}
         >
           <IonTextarea
+            style={{ marginRight: "100px" }}
             placeholder="Write some text..."
             value={message}
             onKeyPress={handleSendMessage}

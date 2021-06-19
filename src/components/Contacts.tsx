@@ -68,7 +68,7 @@ const Contacts: React.FC = () => {
               return (
                 <IonContent
                   key={i}
-                  style={{ position: "absolute", top: "8vh", height: "90vh" }}
+                  style={{ position: "absolute", top: "13vh", height: "87vh" }}
                 >
                   <IonItem>
                     <IonAvatar slot="start">
@@ -84,7 +84,7 @@ const Contacts: React.FC = () => {
             })
           ) : (
             <IonContent
-              style={{ position: "absolute", top: "12vh", height: "90vh" }}
+              style={{ position: "absolute", top: "13vh", height: "87vh" }}
             >
               <IonList>
                 <IonItem>
