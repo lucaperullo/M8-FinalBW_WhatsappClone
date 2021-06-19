@@ -16,8 +16,11 @@ import {
   IonContent,
 } from "@ionic/react";
 import { colorPaletteSharp, moon, sunny, trashSharp } from "ionicons/icons";
+import { CirclePicker } from "react-color";
 import "../theme/style.css";
 interface SettingsProps {
+  chatBackgroundColor: string;
+  setChatBackgroundColor: (arg0: string) => void;
   chatBackground: string;
   setChatBackground: (arg0: string) => void;
   modalShow: boolean;
@@ -67,17 +70,20 @@ const SettingsModal = (props: SettingsProps) => {
             />
           </IonItem>
           <IonItem>
-            <IonText>
-              <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Wallpaper Color</h1>
-            </IonText>
-            <IonIcon slot="end" icon={colorPaletteSharp} />
+            <IonIcon color="primary" slot="end" icon={colorPaletteSharp} />
+            <div style={{ display: "flex", flexDirection: "column" }}>
+              <IonText>
+                <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Wallpaper Color</h1>
+              </IonText>
 
-            <IonToggle
-              checked={dark}
-              slot="end"
-              name="darkMode"
-              onIonChange={toggleDarkModeHandler}
-            />
+              <input
+                onChange={(e) =>
+                  props.setChatBackgroundColor(e.currentTarget.style.color)
+                }
+                type="color"
+                value={`#${props.chatBackgroundColor}`}
+              ></input>
+            </div>
           </IonItem>
           <IonItem style={{ height: "80vh" }}>
             <div style={{ display: "flex", flexDirection: "column" }}>

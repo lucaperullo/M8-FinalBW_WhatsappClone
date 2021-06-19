@@ -36,6 +36,7 @@ const Chat = () => {
   const { status, data, error, isFetching } = useContacts(userNumber);
   const [message, setMessage] = useState<string>("");
   const [Background, setBackground] = useState<string>("");
+  const [BackgroundColor, setBackgroundColor] = useState<string>("");
   const handleSendMessage = () => {
     socket.emit("sendMessage", message, () => {
       setMessage("");
@@ -139,6 +140,8 @@ const Chat = () => {
           </IonItem>
 
           <SettingsModal
+            setChatBackgroundColor={setBackgroundColor}
+            chatBackgroundColor={BackgroundColor}
             setChatBackground={setBackground}
             chatBackground={Background}
             modalShow={SettingsModalShow}
@@ -565,7 +568,10 @@ const Chat = () => {
       </IonMenu>
       <IonRouterOutlet
         id="main2"
-        style={{ backgroundImage: `url(${Background})` }}
+        style={{
+          backgroundImage: `url(${Background})`,
+          backgroundColor: `${BackgroundColor}`,
+        }}
       ></IonRouterOutlet>
     </IonContent>
   );
