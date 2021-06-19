@@ -26,7 +26,7 @@ import CreateGroup from "./CreateGroup";
 import { url } from "inspector";
 
 // socket
-const endpoint = "http://localhost:5000";
+const endpoint = "https://whatzappy.herokuapp.com/";
 const socket = io(endpoint, { transports: ["websocket"] });
 
 const Chat = () => {
