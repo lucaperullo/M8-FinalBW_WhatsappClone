@@ -23,6 +23,7 @@ import { useAllGroups } from "../hooks/useGroups";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { sendSharp } from "ionicons/icons";
 import CreateGroup from "./CreateGroup";
+import { url } from "inspector";
 
 // socket
 const endpoint = "http://localhost:5000";
@@ -34,7 +35,7 @@ const Chat = () => {
   const [GroupModalShow, setGroupModalShow] = useState<boolean>(false);
   const { status, data, error, isFetching } = useContacts(userNumber);
   const [message, setMessage] = useState<string>("");
-
+  const [Background, setBackground] = useState<string>("");
   const handleSendMessage = () => {
     socket.emit("sendMessage", message, () => {
       setMessage("");
@@ -138,6 +139,8 @@ const Chat = () => {
           </IonItem>
 
           <SettingsModal
+            setChatBackground={setBackground}
+            chatBackground={Background}
             modalShow={SettingsModalShow}
             setModalShow={setSettingsModalShow}
           />
@@ -560,7 +563,10 @@ const Chat = () => {
         </IonHeader>
         <IonContent id="content2"></IonContent>
       </IonMenu>
-      <IonRouterOutlet id="main2"></IonRouterOutlet>
+      <IonRouterOutlet
+        id="main2"
+        style={{ backgroundImage: `url(${Background})` }}
+      ></IonRouterOutlet>
     </IonContent>
   );
 };

@@ -39,7 +39,8 @@ ion-content ::-webkit-scrollbar {
   height: 100%;
 }
 .modalButtons {
-  position: absolute;
+  z-index: 2;
+  position: fixed;
   bottom: 25px;
   right: 25px;
 }

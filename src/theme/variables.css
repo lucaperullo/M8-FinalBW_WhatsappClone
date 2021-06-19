@@ -3,7 +3,13 @@ ion-content {
   --overflow: auto;
   overflow: auto;
 }
+body {
+  overflow: hidden;
+}
 
+.modalContainer {
+  padding-top: 50px;
+}
 .chat-box {
   z-index: 1;
   position: fixed;
@@ -498,11 +504,11 @@ body.light {
  */
 
 .ios body.light {
-  --ion-background-color: #ffffff;
+  --ion-background-color: #f0f0f0;
   --ion-background-color-rgb: 0, 0, 0;
 
-  --ion-text-color: #ffffff;
-  --ion-text-color-rgb: 255, 255, 255;
+  --ion-text-color: #0f0a0a;
+  --ion-text-color-rgb: 55, 255, 255;
 
   --ion-color-step-50: #0d0d0d;
   --ion-color-step-100: #1a1a1a;
@@ -524,9 +530,9 @@ body.light {
   --ion-color-step-900: #e6e6e6;
   --ion-color-step-950: #f2f2f2;
 
-  --ion-item-background: #e2dedac7;
+  --ion-item-background: #0f221275;
 
-  --ion-card-background: #e5ddd5;
+  --ion-card-background: #4d534e;
 }
 
 .ios ion-modal.light {
