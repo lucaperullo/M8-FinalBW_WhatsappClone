@@ -49,7 +49,41 @@ const Chat = () => {
   return (
     <IonContent>
       <IonHeader>
-        <h1>jo</h1>
+        {true === true ? (
+          <IonItem>
+            <IonAvatar slot="start">
+              <IonSkeletonText animated />
+            </IonAvatar>
+            <IonLabel>
+              <h3>
+                <IonSkeletonText animated style={{ width: "50%" }} />
+              </h3>
+              <p>
+                <IonSkeletonText animated style={{ width: "80%" }} />
+              </p>
+              <p>
+                <IonSkeletonText animated style={{ width: "60%" }} />
+              </p>
+            </IonLabel>
+          </IonItem>
+        ) : (
+          <IonItem>
+            <IonAvatar slot="start">
+              <IonSkeletonText animated />
+            </IonAvatar>
+            <IonLabel>
+              <h3>
+                <IonSkeletonText animated style={{ width: "50%" }} />
+              </h3>
+              <p>
+                <IonSkeletonText animated style={{ width: "80%" }} />
+              </p>
+              <p>
+                <IonSkeletonText animated style={{ width: "60%" }} />
+              </p>
+            </IonLabel>
+          </IonItem>
+        )}
       </IonHeader>
       <ChatContainer></ChatContainer>
 
