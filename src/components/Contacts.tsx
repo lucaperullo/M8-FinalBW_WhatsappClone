@@ -54,21 +54,23 @@ const Contacts: React.FC = () => {
               size="large"
             />
           </IonItem>
-          <IonSearchbar
-            // value={searchText}
-            onIonChange={(e) =>
-              data?.filter(
-                (contact) => contact.contactsName === e.detail.value!
-              )
-            }
-          ></IonSearchbar>
+          <IonItem>
+            <IonSearchbar
+              // value={searchText}
+              onIonChange={(e) =>
+                data?.filter(
+                  (contact) => contact.contactsName === e.detail.value!
+                )
+              }
+            ></IonSearchbar>
+          </IonItem>
 
           {data ? (
             data.map((data, i) => {
               return (
                 <IonContent
                   key={i}
-                  style={{ position: "absolute", top: "13vh", height: "87vh" }}
+                  style={{ position: "absolute", top: "16vh", height: "82vh" }}
                 >
                   <IonItem>
                     <IonAvatar slot="start">
@@ -84,7 +86,7 @@ const Contacts: React.FC = () => {
             })
           ) : (
             <IonContent
-              style={{ position: "absolute", top: "13vh", height: "87vh" }}
+              style={{ position: "absolute", top: "16vh", height: "82vh" }}
             >
               <IonList>
                 <IonItem>

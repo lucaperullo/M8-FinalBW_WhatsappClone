@@ -3,6 +3,7 @@ ion-content {
   --overflow: auto;
   overflow: auto;
 }
+
 .chat-box {
   z-index: 1;
   position: fixed;

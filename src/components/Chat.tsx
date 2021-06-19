@@ -23,6 +23,7 @@ import { useAllGroups } from "../hooks/useGroups";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { sendSharp } from "ionicons/icons";
 import CreateGroup from "./CreateGroup";
+
 // socket
 const endpoint = "http://localhost:5000";
 const socket = io(endpoint, { transports: ["websocket"] });
@@ -51,6 +52,7 @@ const Chat = () => {
         <h1>jo</h1>
       </IonHeader>
       <ChatContainer></ChatContainer>
+
       <IonItem className="chat-box">
         <IonIcon
           className="chat-button"
