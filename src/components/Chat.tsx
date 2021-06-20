@@ -350,7 +350,10 @@ const Chat = () => {
             // </IonContent>
             data.map((data, i) => {
               return (
-                <div key={i}>
+                <IonContent
+                  key={i}
+                  style={{ position: "absolute", top: "8vh", height: "90vh" }}
+                >
                   <IonItem>
                     <IonAvatar slot="start">
                       <img src={data.profileImg} alt="profileImg" />
@@ -360,7 +363,7 @@ const Chat = () => {
                       <p>{data.about}</p>
                     </IonLabel>
                   </IonItem>
-                </div>
+                </IonContent>
               );
             })
           ) : (
