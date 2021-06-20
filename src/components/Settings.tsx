@@ -16,8 +16,9 @@ import {
   IonContent,
 } from "@ionic/react";
 import { colorPaletteSharp, moon, sunny, trashSharp } from "ionicons/icons";
-import { CirclePicker } from "react-color";
+
 import "../theme/style.css";
+
 interface SettingsProps {
   chatBackgroundColor: string;
   setChatBackgroundColor: (arg0: string) => void;
@@ -47,7 +48,7 @@ const SettingsModal = (props: SettingsProps) => {
       cssClass="settings-modal"
       backdropDismiss={false}
     >
-      <IonContent>
+      <IonContent style={{ backgroundColor: `${props.chatBackgroundColor}` }}>
         <IonHeader
           style={{ position: "fixed", top: 0, backgroundColor: "black" }}
         >
@@ -69,21 +70,17 @@ const SettingsModal = (props: SettingsProps) => {
               onIonChange={toggleDarkModeHandler}
             />
           </IonItem>
-          <IonItem>
-            <IonIcon color="primary" slot="end" icon={colorPaletteSharp} />
-            <div style={{ display: "flex", flexDirection: "column" }}>
-              <IonText>
-                <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Wallpaper Color</h1>
-              </IonText>
-
+          <IonItem style={{ height: "150px" }}>
+            <IonText>
+              <h1>‏‏‎ ‎‏‏‎ ‎‏‏‎ Wallpaper Color</h1>
+            </IonText>
+            <IonItem style={{ zIndex: 2, height: "150px" }}>
               <input
-                onChange={(e) =>
-                  props.setChatBackgroundColor(e.currentTarget.style.color)
-                }
                 type="color"
-                value={`#${props.chatBackgroundColor}`}
-              ></input>
-            </div>
+                value={props.chatBackgroundColor}
+                onChange={(e) => props.setChatBackgroundColor(e.target.value)}
+              />
+            </IonItem>
           </IonItem>
           <IonItem style={{ height: "80vh" }}>
             <div style={{ display: "flex", flexDirection: "column" }}>
@@ -182,6 +179,7 @@ const SettingsModal = (props: SettingsProps) => {
             <IonButton
               color="danger"
               onClick={() => {
+                localStorage.clear();
                 window.location.assign("/");
               }}
             >

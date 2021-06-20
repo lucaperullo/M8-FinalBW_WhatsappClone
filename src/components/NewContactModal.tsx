@@ -7,11 +7,13 @@ import {
   IonItem,
   IonInput,
   IonText,
+  useIonToast,
 } from "@ionic/react";
 
 import { useMutation } from "react-query";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { backend } from "../config";
+import axios from "axios";
 
 interface ModalProps {
   modalShow: boolean;
@@ -21,14 +23,16 @@ const NewContactModal = (props: ModalProps) => {
   const [userNumber] = useLocalStorage("userNumber", "");
   const [contactsNumber, setContactsNumber] = useState("");
   const [contactsName, setContactsName] = useState("");
+  const [present, dismiss] = useIonToast();
   const mutation = useMutation((newContact: any) => {
-    console.log(newContact);
     return backend.post(`/api/contact/${userNumber}`, newContact);
   });
 
-  const handleSubmit = (e: React.FormEvent): void => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     mutation.mutate({ contactsNumber, contactsName });
+
+    const res = await backend.get(`/api/contacts/${userNumber}`);
     props.setModalShow(false);
   };
 
@@ -67,7 +71,24 @@ const NewContactModal = (props: ModalProps) => {
             ></IonInput>
           </IonItem>
           <div className="modalButtons">
-            <IonButton type="submit" onClick={(e) => handleSubmit(e)}>
+            <IonButton
+              type="submit"
+              onClick={(e) => {
+                return (
+                  handleSubmit(e),
+                  present({
+                    position: "top",
+                    mode: "ios",
+                    color: "warning",
+
+                    buttons: [{ text: "hide", handler: () => dismiss() }],
+                    message: "Contact added successfully",
+                    onDidDismiss: () => console.log("dismissed"),
+                    onWillDismiss: () => console.log("will dismiss"),
+                  })
+                );
+              }}
+            >
               Add contact
             </IonButton>
             <IonButton onClick={() => props.setModalShow(false)}>

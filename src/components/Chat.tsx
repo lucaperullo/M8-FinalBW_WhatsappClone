@@ -28,7 +28,9 @@ import { url } from "inspector";
 // socket
 const endpoint = "http://localhost:5000";
 const socket = io(endpoint, { transports: ["websocket"] });
+// interface color {
 
+// }
 const Chat = () => {
   const [userNumber] = useLocalStorage<string>("userNumber", "");
   const [SettingsModalShow, setSettingsModalShow] = useState<boolean>(false);
@@ -36,17 +38,17 @@ const Chat = () => {
   const { status, data, error, isFetching } = useContacts(userNumber);
   const [message, setMessage] = useState<string>("");
   const [Background, setBackground] = useState<string>("");
-  const [BackgroundColor, setBackgroundColor] = useState<string>("");
+  const [BackgroundColor, setBackgroundColor] = useState("");
   const handleSendMessage = () => {
     socket.emit("sendMessage", message, () => {
       setMessage("");
     });
   };
 
-  useEffect(() => {
-    console.log(status);
-    status === "success" && console.log(data);
-  }, [status]);
+  // useEffect(() => {
+  //   console.log(status);
+  //   status === "success" && console.log(data);
+  // }, [status]);
 
   return (
     <IonContent>
@@ -354,15 +356,17 @@ const Chat = () => {
                   key={i}
                   style={{ position: "absolute", top: "8vh", height: "90vh" }}
                 >
-                  <IonItem>
-                    <IonAvatar slot="start">
-                      <img src={data.profileImg} alt="profileImg" />
-                    </IonAvatar>
-                    <IonLabel>
-                      <h3>{data.contactsName}</h3>
-                      <p>{data.about}</p>
-                    </IonLabel>
-                  </IonItem>
+                  <IonList>
+                    <IonItem>
+                      <IonAvatar slot="start">
+                        <img src={data.profileImg} alt="profileImg" />
+                      </IonAvatar>
+                      <IonLabel>
+                        <h3>{data.contactsName}</h3>
+                        <p>{data.about}</p>
+                      </IonLabel>
+                    </IonItem>
+                  </IonList>
                 </IonContent>
               );
             })

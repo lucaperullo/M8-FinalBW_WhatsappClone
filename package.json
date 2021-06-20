@@ -26,7 +26,6 @@
     "axios": "^0.21.1",
     "ionicons": "^5.4.0",
     "react": "^17.0.1",
-    "react-color": "^2.19.3",
     "react-dom": "^17.0.1",
     "react-query": "^3.17.2",
     "react-redux": "^7.2.4",
