@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import {
   IonAvatar,
+  IonCard,
+  IonCardContent,
   IonContent,
   IonHeader,
   IonIcon,
@@ -24,7 +26,7 @@ import { useLocalStorage } from "../hooks/useLocalStorage";
 import { sendSharp } from "ionicons/icons";
 import CreateGroup from "./CreateGroup";
 import { url } from "inspector";
-
+import "../theme/style.css";
 // socket
 const endpoint = "http://localhost:5000";
 const socket = io(endpoint, { transports: ["websocket"] });
@@ -54,22 +56,24 @@ const Chat = () => {
     <IonContent>
       <IonHeader>
         {true === true ? (
-          <IonItem>
-            <IonAvatar slot="start">
-              <IonSkeletonText animated />
-            </IonAvatar>
-            <IonLabel>
-              <h3>
-                <IonSkeletonText animated style={{ width: "50%" }} />
-              </h3>
-              <p>
-                <IonSkeletonText animated style={{ width: "80%" }} />
-              </p>
-              <p>
-                <IonSkeletonText animated style={{ width: "60%" }} />
-              </p>
-            </IonLabel>
-          </IonItem>
+          <div className="contact-header">
+            <IonItem>
+              <IonAvatar slot="start">
+                <IonSkeletonText animated />
+              </IonAvatar>
+              <IonLabel>
+                <h3>
+                  <IonSkeletonText animated style={{ width: "50%" }} />
+                </h3>
+                <p>
+                  <IonSkeletonText animated style={{ width: "80%" }} />
+                </p>
+                <p>
+                  <IonSkeletonText animated style={{ width: "60%" }} />
+                </p>
+              </IonLabel>
+            </IonItem>
+          </div>
         ) : (
           <IonItem>
             <IonAvatar slot="start">
@@ -89,7 +93,110 @@ const Chat = () => {
           </IonItem>
         )}
       </IonHeader>
-      <ChatContainer></ChatContainer>
+      <ChatContainer>
+        <IonContent style={{ zIndex: 1, height: "100%" }}>
+          <div className="left">
+            <IonCard>
+              <IonCardContent>
+                Hi its Chiara here!
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="right">
+            <IonCard>
+              <IonCardContent>
+                Hey Chiara how are you? :D
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="left">
+            <IonCard>
+              <IonCardContent>
+                Im doing great, i would like to know if we could meetup tonight!
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="right">
+            <IonCard>
+              <IonCardContent>
+                Sure thing, tell me where and at what time
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="right">
+            <IonCard>
+              <IonCardContent>
+                Hey Chiara how are you? :D
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="left">
+            <IonCard>
+              <IonCardContent>
+                Im doing great, i would like to know if we could meetup tonight!
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="right">
+            <IonCard>
+              <IonCardContent>
+                Sure thing, tell me where and at what time
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="right">
+            <IonCard>
+              <IonCardContent>
+                Hey Chiara how are you? :D
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="left">
+            <IonCard>
+              <IonCardContent>
+                Im doing great, i would like to know if we could meetup tonight!
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+          <div className="right">
+            <IonCard>
+              <IonCardContent>
+                Sure thing, tell me where and at what time
+                <div className="ion-text-end">
+                  <span>2:54</span>
+                </div>
+              </IonCardContent>
+            </IonCard>
+          </div>
+        </IonContent>
+      </ChatContainer>
 
       <IonItem className="chat-box">
         <IonIcon
@@ -594,12 +701,12 @@ const IonItems = styled(IonItem)`
   width: 62%;
 `;
 const ChatContainer = styled.div`
-  padding: 70px;
+  padding-left: 2rem;
+  padding-right: 2rem;
   display: flex;
   flex-direction: column;
   height: 80vh;
   width: 100vw;
-  padding-bottom: 10vh;
 `;
 
 const BlockDiv = styled.div`
